@@ -1,8 +1,11 @@
 @media screen and (max-width: 600px) {
 
   /* nav styling  */
+  #nav {
+    padding: 2vw 1vw;
+  }
   .nav-part-1 {
-    height: 66px;
+    height: 63px;
     overflow: hidden;
   }
   .nav-part-1 svg {
@@ -14,7 +17,7 @@
   
   /* page 1 styling    */
   #page-1 {
-    padding: 20vw 3vw 1vw;
+    padding: 35vw 3vw 1vw;
     min-height: 50vh;
   }
   #page-1 h1 {
