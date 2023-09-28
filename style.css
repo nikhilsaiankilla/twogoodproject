@@ -18,7 +18,7 @@ body {
   color: #fff;
   background-color: #000;
 }
-
+/* nav  */
 #nav {
   width: 100%;
   position: fixed;
@@ -47,8 +47,23 @@ body {
   margin: 0 10px;
   text-decoration: none;
   color: gray;
-  /* font-size: 18px; */
   text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+}
+.nav-part-2 .links a::after{
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 0.5px;
+  background-color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav-part-2 .links a:hover::after{
+  width: 100%;
 }
 
 .icons{
@@ -92,6 +107,7 @@ body {
   height: 100vh;
   margin-top: 2vw;
   position: relative;
+  cursor: pointer;
 }
 
 #video-container video {
@@ -166,9 +182,10 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease-in-out;
+  overflow: hidden;
 }
 .elem .details:hover {
-  height: 200px;
+  height: 250px;
 }
 .elem:nth-child(2) .details {
   background-color: #f2dccb;
@@ -177,6 +194,66 @@ body {
   background-color: #ffffff;
 }
 
+.elem .details .detail-title{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0vw 1vw;
+}
+.elem .details .detail-title .circle{
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  border-radius: 50%;
+}
+.elem .details .detail-title .shop{
+  font-size: 14px;
+  font-weight: 100;
+  color: #333;
+  text-transform: uppercase;
+}
+.elem .details .detail-title h2{
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.elem .details .details-bottom{
+  width: 100%;
+  height: 200px;
+  padding: 1vw;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.elem .details .details-bottom .details-bottom-left{
+  width: 50%;
+  height: 100%;
+}
+.elem .details .details-bottom .details-bottom-right{
+  width: 50%;
+  height: 100%;
+}
+.elem .details .details-bottom .details-img{
+  padding: 10px;
+  width: 100%;
+  height: 80%;
+  /* background-color: red; */
+}
+.elem .details .details-bottom .details-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.elem .details .details-bottom .details-img-title{
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
 .page-2-bottom {
   width: 100%;
   padding: 4vw 3vw;
@@ -357,8 +434,13 @@ body {
   justify-content: space-between;
 }
 
-.page-5-right img{
+.page-5-img{
   width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.page-5-right .page-5-img img{
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -397,6 +479,11 @@ body {
 }
 .email-collector input::placeholder{
   color: black;
+}
+
+.feedback-msg{
+  color: red;
+  text-transform: uppercase ;
 }
 
 .page-6-bottom-section{

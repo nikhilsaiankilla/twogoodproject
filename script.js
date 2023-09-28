@@ -34,12 +34,16 @@ function videoAnimation() {
 
   videoContainer.addEventListener("mouseenter", (dets) => {
     gsap.to(playBtn, {
+      left: dets.x,
+      top: dets.y,
       scale: 1,
       opacity: 1,
     });
   });
   videoContainer.addEventListener("mouseleave", (dets) => {
     gsap.to(playBtn, {
+      left: dets.x,
+      top: dets.y,
       scale: 0,
       opacity: 0,
     });
@@ -134,32 +138,31 @@ function productsAnimation() {
     });
   });
 
-
   let tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:"#page-3",
-      scroller:"#main",
-      start:"top 65%",
-      end:"top 0",
+    scrollTrigger: {
+      trigger: "#page-3",
+      scroller: "#main",
+      start: "top 65%",
+      end: "top 0",
       // markers:true,
     },
-  })
+  });
 
-  tl.from("#child-1,#child-2",{
-    y:50,
-    opacity:0,
-    duration:0.3,
-    delay:0.3,
-    stagger:0.4,
-  })
+  tl.from("#child-1,#child-2", {
+    y: 50,
+    opacity: 0,
+    duration: 0.3,
+    delay: 0.3,
+    stagger: 0.4,
+  });
 
-  tl.from("#child-3,#child-4",{
-    y:50,
-    opacity:0,
-    duration:0.3,
-    delay:0.3,
-    stagger:0.4,
-  })
+  tl.from("#child-3,#child-4", {
+    y: 50,
+    opacity: 0,
+    duration: 0.3,
+    delay: 0.3,
+    stagger: 0.4,
+  });
 }
 productsAnimation();
 
@@ -202,22 +205,70 @@ function cardAnimation() {
     },
   });
 }
-cardAnimation()
+cardAnimation();
 
-function impactSectionAnimation(){
-  gsap.from(".page-5-right img",{
-    y:50,
+function impactSectionAnimation() {
+  gsap.from(".page-5-right img", {
+    y: 50,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.7,
+    scrollTrigger: {
+      trigger: "#page-5",
+      scroller: "#main",
+      start: "top 60%",
+      end: "top 0",
+      // markers:true
+    },
+  });
+}
+impactSectionAnimation();
+
+// validating email
+function validateEmail() {
+  let feedbackMsg = document.querySelector(".feedback-msg");
+  let submitBtn = document.getElementById("submit-btn");
+
+  submitBtn.addEventListener("click", () => {
+    let emailInput = document.querySelector(".email-collector input").value;
+    if (emailInput.length == 0) {
+      feedbackMsg.innerHTML = "please enter your email before submiting";
+      setTimeout(() => {
+        feedbackMsg.style.color = "red";
+        feedbackMsg.innerHTML = " ";
+      }, 3000);
+      return false;
+    }
+    if (!emailInput.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+      feedbackMsg.innerHTML = "Enter Valid email";
+      setTimeout(() => {
+        feedbackMsg.style.color = "red";
+        feedbackMsg.innerHTML = " ";
+      }, 3000);
+      return false;
+    }
+    feedbackMsg.style.color = "green";
+    feedbackMsg.innerHTML = "your email successfullly listed";
+    setTimeout(() => {
+      feedbackMsg.style.color = "red";
+      feedbackMsg.innerHTML = " ";
+    }, 3000);
+  });
+}
+validateEmail();
+
+function emailSectionAnimation(){
+  gsap.from(".email-collector",{
+    x:-500,
     opacity:0,
-    duration:0.5,
-    delay:0.3,
-    stagger:0.4,
+    duration:0.7,
     scrollTrigger:{
-      trigger:"#page-5",
+      trigger:"#page-6",
       scroller:"#main",
       start:"top 60%",
       end:"top 0",
-      // markers:true
+      // markers:true,
     }
   })
 }
-impactSectionAnimation()
+emailSectionAnimation()

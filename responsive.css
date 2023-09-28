@@ -11,6 +11,9 @@
   .nav-part-1 svg {
     height: 64px;
   }
+  .nav-part-1 svg:nth-child(2) {
+    margin-left: 10px;
+  }
   .nav-part-2 .links a {
     display: none;
   }
@@ -27,12 +30,12 @@
     height: 40vh;
   }
   #video-container #play {
-    position: absolute;
+    position: fixed;
     opacity: 1;
     scale: 1;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
   }
   /* page 2 styling  */
   #page-2 {
@@ -108,8 +111,13 @@
     display: flex;
     justify-content: space-between;
   }
-  .page-5-right img {
+  .page-5-img{
     width: 49%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .page-5-right img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }
@@ -131,6 +139,11 @@
   #page-6 {
     width: 100%;
     padding: 4vw 1vw;
+  }
+  .email-collector i{
+    font-size: 5vw;
+    cursor: pointer;
+    user-select: none;
   }
 
   .page-6-bottom-1 h2 {
